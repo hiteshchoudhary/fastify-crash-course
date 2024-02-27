@@ -1,4 +1,4 @@
-const Course  = require("../models/Course")
+const Course = require("../models/Course")
 
 // get all courses
 exports.getCourse = async (req, reply) => {
@@ -10,6 +10,11 @@ exports.getCourse = async (req, reply) => {
     }
 }
 
+
+
+
+
+/// hey
 
 // get a single course
 
@@ -28,8 +33,8 @@ exports.getSingleCouse = async (req, reply) => {
 
 exports.addCourse = async (req, reply) => {
     try {
-       const course = new Course(req.body)
-       return course.save()
+        const course = new Course(req.body)
+        return course.save()
     } catch (error) {
         throw error
     }
@@ -42,8 +47,8 @@ exports.updateCourse = async (req, reply) => {
     try {
         const courseId = req.params.id
         const course = req.body
-        const {...updatedCourse} = course
-        const update = await Course.findByIdAndUpdate(courseId, updatedCourse, {new: true})
+        const { ...updatedCourse } = course
+        const update = await Course.findByIdAndUpdate(courseId, updatedCourse, { new: true })
         return update
     } catch (error) {
         throw error
@@ -52,7 +57,7 @@ exports.updateCourse = async (req, reply) => {
 
 // delete an existing course
 
-exports.deleteCourse = async(req, reply) => {
+exports.deleteCourse = async (req, reply) => {
     try {
         const courseId = req.params.id
         const course = Course.findByIdAndDelete(courseId)
