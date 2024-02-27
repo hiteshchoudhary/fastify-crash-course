@@ -3,20 +3,23 @@ const fastify = require('fastify')({
 })
 
 // bring in routes
-const routes  = require('./routes')
+const routes = require('./routes')
 
 // db
 const mongoose = require('mongoose')
 
 // db connection
 mongoose.connect('mongodb://localhost/lcofasti')
-.then(() => console.log("MONGO is ready !!"))
-.catch(err => console.log(err))
+    .then(() => console.log("MONGO is ready !!"))
+    .catch(err => console.log(err))
 
+
+// test git 
+// trest
 
 // routes
-fastify.get('/', async(request, reply) => {
-    return {visiter: "LearnCodeOnline.in"}
+fastify.get('/', async (request, reply) => {
+    return { visiter: "LearnCodeOnline.in" }
 })
 
 routes.forEach((route, index) => {
@@ -29,7 +32,7 @@ const start = async () => {
         await fastify.listen(3000)
         fastify.log.info(`Server is running at ${address}`)
     } catch (error) {
-        
+
     }
 }
 
